@@ -81,7 +81,7 @@ if __name__ == '__main__':
                               index_fields=data_index_fields,
                               json_path='respondJson')
 
-    data = RabitDataset(data=data_resource, metadata=md_resource, project=project_resource)
+    # data = RabitDataset(data=data_resource, metadata=md_resource, project=project_resource)
 
     # project = get_project_data(baseurl, uri, params)
     # print(project.project_structure)
