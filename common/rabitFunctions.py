@@ -1,5 +1,5 @@
-# from rabitpy.io.resources import RabitProject, RabitMetadata, RabitData, RabitDataset
-# from rabitpy.io.adapters import RabitReaderAPIAdapter
+# from rabitpy_dev_phase_info.io.resources import RabitProject, RabitMetadata, RabitData, RabitDataset
+# from rabitpy_dev_phase_info.io.adapters import RabitReaderAPIAdapter
 #
 #
 # def get_project_data(baseurl, uri, params):

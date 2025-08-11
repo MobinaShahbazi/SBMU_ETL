@@ -1,0 +1,42 @@
+I01|Rheumatic fever with heart involvement
+I05|Rheumatic mitral valve diseases
+I06|Rheumatic aortic valve diseases
+I07|Rheumatic tricuspid valve diseases
+I08|Multiple valve diseases
+I10|Essential (primary) hypertension
+I11|Hypertensive heart disease
+I15|Secondary hypertension
+I16|Hypertensive crisis
+I20.0|Unstable angina
+I20.1|Angina pectoris with documented spasm
+I20.9|Angina pectoris, unspecified
+I21.0|STEMI of anterior wall
+I21.1|STEMI of inferior wall
+I21.21|STEMI involving left circumflex coronary artery
+I21.4|Non-ST elevation MI
+I22|Subsequent STEMI and NSTEMI in 28 days
+I23|Certain current complications following STEMI and NSTEMI (within the 28 day period)
+I25|Chronic ischemic heart disease
+I26|Pulmonary embolism
+I30|Acute pericarditis
+I31|Other diseases of pericardium
+I33|Acute and subacute endocarditis
+I34|Nonrheumatic mitral valve disorders
+I35|Nonrheumatic aortic valve disorders
+I36|Nonrheumatic tricuspid valve disorders
+I37|Nonrheumatic pulmonary valve disorders
+I38|Endocarditis, valve unspecified
+I40|Acute myocarditis
+I42|Cardiomyopathy
+I44.2|Complete heart block
+I46|Cardiac arrest
+I47|Paroxysmal tachycardia
+I47.2|Ventricular tachycardia
+I48.9|Atrial fibrillation and atrial flutter, unspecified
+I50|Heart failure
+I71|Aortic aneurysm and dissection
+I74|Arterial embolism and thrombosis
+I80|Phlebitis and thrombophlebitis
+R55|Syncope and collapse
+C38|Malignant neoplasm of heart, mediastinum and pleura
+D15.1|Myxoma  (Benign neoplasm of heart)
