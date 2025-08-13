@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: rabitpy
+Version: 0.1.0
+Summary: RABIT data interface
+Home-page: https://git.ncdrc.com/m.azmin/rabitpy.git
+Author: Mehrdad Azmin, Sarah Abrishami
+Author-email: mehrdad.azmin@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=1.3.5)
+Requires-Dist: requests (>=2.27.1)
+Requires-Dist: Khayyam (>=3.0.17)
+
+#rabitpy
+
+A python package for interfacing with RABIT data model.
+
