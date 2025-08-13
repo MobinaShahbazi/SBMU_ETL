@@ -1,3 +1,49 @@
+import json
+import requests
+from typing import Any, Dict, Optional
+
+def save_response(
+    host: str,
+    uri: str,
+    project_id: int,
+    respond_json: Dict[str, Any],
+    survey_id: int,
+    questioner_id: int,
+    questionee_id: int,
+    questionee_guid: Optional[str] = None,
+    id: Optional[int] = None
+) -> requests.Response:
+    """
+    Sends a POST request to save a survey response.
+
+    Args:
+        host (str): The base URL of the API.
+        uri (str): The endpoint URI.
+        project_id (int): The project identifier.
+        respond_json (Dict[str, Any]): The response data in JSON format.
+        survey_id (int): The survey identifier.
+        questioner_id (int): The ID of the person asking questions.
+        questionee_id (int): The ID of the person answering questions.
+        questionee_guid (Optional[str], optional): Unique identifier for the questionee. Defaults to None.
+        id (Optional[int], optional): Response ID. Defaults to None.
+
+    Returns:
+        requests.Response: The response object from the POST request.
+    """
+    baseurl = f'{host}/api/{uri}/save-respond'
+    body = {
+        'id': id,
+        'projectId': project_id,
+        'respondJson': json.dumps(respond_json, ensure_ascii=False),
+        'surveyId': survey_id,
+        'questionerId': questioner_id,
+        'questioneeId': questionee_id,
+        'questioneeGuid': questionee_guid
+    }
+    return requests.post(url=baseurl, json=body, verify=False)
+
+
+
 # from rabitpy_dev_phase_info.io.resources import RabitProject, RabitMetadata, RabitData, RabitDataset
 # from rabitpy_dev_phase_info.io.adapters import RabitReaderAPIAdapter
 #

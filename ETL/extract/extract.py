@@ -38,11 +38,11 @@ def extract_survey_respond_panel(baseurl: str, uri: str, params: dict) -> list:
 if __name__ == '__main__':
 
     survey_respond_records = extract_survey_respond_disreg(BASEURL_DISREG, URI_DISREG, PARAMS)
-    filtered_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 84645][:3]
-    print(filtered_records)
+    survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 84645]
+    print(len(survey_respond_records))
 
     # /////////////
 
     survey_respond_records = extract_survey_respond_panel(BASEURL_PANEL, URI_PANEL, PARAMS)
-    filtered_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 167001]
-    print(filtered_records)
+    survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 167001]
+    print(survey_respond_records)
