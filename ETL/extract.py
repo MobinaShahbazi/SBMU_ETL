@@ -40,5 +40,5 @@ def extract_survey_respond_panel(baseurl: str, uri: str, params: dict) -> list:
 # Extract all records of 'survey_respond' for the survey we want to fix
 survey_respond_records = extract_survey_respond_disreg(BASEURL_DISREG, URI_DISREG, PARAMS)
 survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == SURVEY_ID_DISREG]
-# print((survey_respond_records))
+print('Data extracted...')
 

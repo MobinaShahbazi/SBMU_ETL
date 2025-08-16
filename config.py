@@ -1,12 +1,8 @@
-
-SOURCE='api'
 PARAMS={'unpaged': 1}
 
-
-
 # Panel info
-# BASEURL_PANEL='https://panel.rabit.ir/api' # use for extraction
-BASEURL_PANEL='https://panel.rabit.ir'
+# BASEURL_PANEL='https://panel.rabit.ir/api' # used for extraction
+BASEURL_PANEL='https://panel.rabit.ir' # used for load test
 URI_PANEL='6fabec64-081f-4b40-834a-f3a94b348a73'
 SURVEY_ID_PANEL=167001
 project_id_PANEL=101346

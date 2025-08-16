@@ -1,9 +1,6 @@
 import json
 import requests
 from typing import Any, Dict, Optional
-from config import *
-
-from ETL.transform.transporm import mapped_recoreds
 
 
 def save_response(
@@ -35,20 +32,4 @@ def save_response(
     return requests.post(url=baseurl, json=body, verify=False)
 
 
-if __name__ == '__main__':
 
-    print('hi')
-    for rec in mapped_recoreds:
-        try:
-            response = save_response(
-                host=BASEURL_PANEL, uri=URI_PANEL, project_id=project_id_PANEL,
-                survey_id=SURVEY_ID_PANEL, questionee_id=414382,
-                questioner_id=34794, respond_json=rec['respondJson'],
-            )
-            print(response.status_code)
-            print(f'Saved {rec}')
-
-        except Exception as e:
-            print(f'Failed to save form: {e}')
-
-    pass
