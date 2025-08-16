@@ -1,3 +1,5 @@
+import json
+
 from config import *
 from rabitpy_dev_phase_info.io.adapters import RabitReaderAPIAdapter
 
@@ -35,14 +37,10 @@ def extract_survey_respond_panel(baseurl: str, uri: str, params: dict) -> list:
     return survey_respond_records
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    survey_respond_records = extract_survey_respond_disreg(BASEURL_DISREG, URI_DISREG, PARAMS)
-    survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 84645]
-    print(len(survey_respond_records))
+survey_respond_records = extract_survey_respond_disreg(BASEURL_DISREG, URI_DISREG, PARAMS)
+# survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 84645][:100]
+survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 84645 and ('FinalDiagnosis' in json.loads(rec['respondJson'])) ]
+# print((survey_respond_records))
 
-    # /////////////
-
-    survey_respond_records = extract_survey_respond_panel(BASEURL_PANEL, URI_PANEL, PARAMS)
-    survey_respond_records = [rec for rec in survey_respond_records if rec.get('surveyId') == 167001]
-    print(survey_respond_records)
