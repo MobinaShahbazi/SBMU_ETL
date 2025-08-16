@@ -37,16 +37,18 @@ def save_response(
 
 if __name__ == '__main__':
 
+    print('hi')
     for rec in mapped_recoreds:
         try:
-            save_response(
+            response = save_response(
                 host=BASEURL_PANEL, uri=URI_PANEL, project_id=project_id_PANEL,
-                survey_id=SURVEY_ID_PANEL, questionee_id=rec['questioneeId'],
-                questioner_id=rec['questionerId'], respond_json=rec
+                survey_id=SURVEY_ID_PANEL, questionee_id=414382,
+                questioner_id=34794, respond_json=rec['respondJson'],
             )
+            print(response.status_code)
+            print(f'Saved {rec}')
 
         except Exception as e:
             print(f'Failed to save form: {e}')
-            print(rec)
 
     pass

@@ -67,5 +67,7 @@ def list_record_mapper(survey_respond_records: list) -> list:
     # print([x.get('FinalDiagnosis') for x in x_list])
 
 mapped_recoreds = list_record_mapper(survey_respond_records)
-print(mapped_recoreds[:10])
+mapped_recoreds = mapped_recoreds[20:22]
+print(len(mapped_recoreds))
+print(mapped_recoreds)
 
