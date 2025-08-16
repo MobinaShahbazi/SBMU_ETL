@@ -24,13 +24,12 @@ def title_to_new_codes_mapper(answer: str) -> list:
         return [answer]
 
 
-def record_mapper(survey_respond_records: list) -> list:
+def list_record_mapper(survey_respond_records: list) -> list:
     """
-    Map records by updating the 'Discharge11' field (if exists) inside respondJson:
+    Map records by updating the 'FinalDiagnosis' field (if exists) inside respondJson:
     - If the value is a list, map with coding_mapper().
-    - If the value is a string, map with title_to_new_codes_mapper().
-    Replace key 'Discharge11' with 'FinalDiagnosis'.
     """
+    survey_respond_records = [rec for rec in survey_respond_records if 'FinalDiagnosis' in json.loads(rec['respondJson'])]
     mapped_records = []
 
     for rec in survey_respond_records:
@@ -43,17 +42,14 @@ def record_mapper(survey_respond_records: list) -> list:
             except json.JSONDecodeError:
                 respond_json = {}
 
-        if "FinalDiagnosis" in respond_json:
-            value = respond_json["FinalDiagnosis"]
+        value = respond_json["FinalDiagnosis"]
+        try:
+            new_value = coding_mapper(value)
+        except Exception as e:
+            new_value = value
 
-            if isinstance(value, list):
-                new_value = coding_mapper(value)
-            else:
-                new_value = value  # fallback if unexpected type
-
-            respond_json["FinalDiagnosis"] = new_value
-
-            rec_copy["respondJson"] = respond_json
+        respond_json["FinalDiagnosis"] = new_value
+        rec_copy["respondJson"] = respond_json
 
         mapped_records.append(rec_copy)
 
@@ -61,12 +57,15 @@ def record_mapper(survey_respond_records: list) -> list:
 
 
 
-if __name__ == '__main__':
-    print('before: ')
-    x_list = [json.loads(rec['respondJson']) for rec in survey_respond_records]
-    print([x.get('FinalDiagnosis') for x in x_list])
-    mapped_recoreds = record_mapper(survey_respond_records)
-    print('after: ')
-    x_list = [rec['respondJson'] for rec in mapped_recoreds]
-    print([x.get('FinalDiagnosis') for x in x_list])
+# if __name__ == '__main__':
+    # print('before: ')
+    # x_list = [json.loads(rec['respondJson']) for rec in survey_respond_records]
+    # print([x.get('FinalDiagnosis') for x in x_list])
+    # mapped_recoreds = list_record_mapper(survey_respond_records)
+    # print('after: ')
+    # x_list = [rec['respondJson'] for rec in mapped_recoreds]
+    # print([x.get('FinalDiagnosis') for x in x_list])
+
+mapped_recoreds = list_record_mapper(survey_respond_records)
+print(mapped_recoreds[:10])
 
